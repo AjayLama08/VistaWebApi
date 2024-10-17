@@ -27,6 +27,7 @@ namespace Vista.Api.Controllers
             return await _context.Sessions.ToListAsync();
         }
 
+
         // GET: api/Sessions/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Session>> GetSession(int id)
@@ -39,6 +40,22 @@ namespace Vista.Api.Controllers
             }
 
             return session;
+        }
+
+        // GET: api/ GetFreeSessions?date=yyyy-mm-dd&category=aa
+        // Gets a list of sessions that are not booked for a specified date and category
+        [HttpGet("GetFreeSessions")]
+        public async Task<ActionResult<IEnumerable<Session>>> GetFreeSessions(
+        DateTime date, string category)
+        {
+            var sessions = await _context.Sessions
+            .Where(s => s.SessionDate == date
+            && s.BookingReference == null
+            && s.Trainer.TrainerCategories != null
+            && s.Trainer.TrainerCategories
+            .Any(tr => tr.Category.CategoryCode == category))
+            .ToListAsync();
+            return sessions;
         }
 
         // PUT: api/Sessions/5
@@ -72,10 +89,10 @@ namespace Vista.Api.Controllers
             return NoContent();
         }
 
-        // POST: api/Sessions
+        // POST: api/Sessions/AddSessiondate
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<Session>> PostSession(Session session)
+        [HttpPost("AddSessiondate")]
+        public async Task<ActionResult<Session>> AddSessionDate(Session session)
         {
             _context.Sessions.Add(session);
             await _context.SaveChangesAsync();
