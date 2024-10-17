@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Vista.Api.Data;
+using Vista.Api.Dtos;
 
 namespace Vista.Api.Controllers
 {
@@ -45,7 +46,7 @@ namespace Vista.Api.Controllers
         // GET: api/ GetFreeSessions?date=yyyy-mm-dd&category=aa
         // Gets a list of sessions that are not booked for a specified date and category
         [HttpGet("GetFreeSessions")]
-        public async Task<ActionResult<IEnumerable<Session>>> GetFreeSessions(
+        public async Task<ActionResult<IEnumerable<SessionFreeSlotDto>>> GetFreeSessions(
         DateTime date, string category)
         {
             var sessions = await _context.Sessions
@@ -54,7 +55,15 @@ namespace Vista.Api.Controllers
             && s.Trainer.TrainerCategories != null
             && s.Trainer.TrainerCategories
             .Any(tr => tr.Category.CategoryCode == category))
+            .Select(s => new SessionFreeSlotDto
+            {
+                SessionId = s.SessionId,
+                SessionDate = s.SessionDate,
+                TrainerId = s.TrainerId,
+                TrainerName = s.Trainer.Name
+            })
             .ToListAsync();
+
             return sessions;
         }
 
