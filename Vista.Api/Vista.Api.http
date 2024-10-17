@@ -1,0 +1,6 @@
+@Vista.Api_HostAddress = http://localhost:5100
+
+GET {{Vista.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
