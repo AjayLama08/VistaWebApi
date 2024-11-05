@@ -1,0 +1,54 @@
+﻿@page
+@model Vista.Web.Pages.Workshops.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Workshop[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Workshop[0].DateAndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Workshop[0].CategoryCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Workshop[0].BookingRef)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Workshop) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateAndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookingRef)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.WorkshopId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.WorkshopId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.WorkshopId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

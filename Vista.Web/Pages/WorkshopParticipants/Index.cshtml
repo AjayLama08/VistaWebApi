@@ -1,0 +1,41 @@
+﻿@page
+@model Vista.Web.Pages.WorkshopParticipants.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkshopStaff[0].Workshop)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkshopStaff[0].Staff)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.WorkshopStaff) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Workshop.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Staff.FirstName)
+            </td>
+                <td>
+                    <a asp-page="./Remove" asp-route-WorkshopId="@item.WorkshopId"
+                       asp-route-staffId="@item.StaffId">Remove</a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>

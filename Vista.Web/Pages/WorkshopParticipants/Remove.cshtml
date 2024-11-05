@@ -1,0 +1,35 @@
+﻿@page
+@model Vista.Web.Pages.WorkshopParticipants.RemoveModel
+
+@{
+    ViewData["Title"] = "Remove";
+}
+
+<h1>Remove</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>WorkshopStaff</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.WorkshopStaff.Workshop)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.WorkshopStaff.Workshop.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.WorkshopStaff.Staff)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.WorkshopStaff.Staff.FirstName)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="WorkshopStaff.WorkshopId" />
+        <input type="hidden" asp-for="WorkshopStaff.StaffId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>
