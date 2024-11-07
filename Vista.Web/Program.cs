@@ -1,12 +1,7 @@
-using Vista.Web.Data;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-
-// Register database context with the framework - this needs to be added manually
-builder.Services.AddDbContext<WorkshopsContext>();
 
 var app = builder.Build();
 

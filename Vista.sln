@@ -5,12 +5,9 @@ VisualStudioVersion = 17.11.35303.130
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vista.Api", "Vista.Api\Vista.Api.csproj", "{444C0A8D-6A88-45FD-B860-ED4734976447}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vista.Web", "Vista.Web\Vista.Web.csproj", "{B136780C-A7E4-4E02-8340-237BF6E358DE}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{517654A0-F608-4EA5-878C-3DEB2813E67E}"
-	ProjectSection(SolutionItems) = preProject
-		TextFile1.txt = TextFile1.txt
-	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vista.web", "Vista.web\Vista.web.csproj", "{EFB63595-2266-42DC-B689-8DE96DC19ACE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,10 +19,10 @@ Global
 		{444C0A8D-6A88-45FD-B860-ED4734976447}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{444C0A8D-6A88-45FD-B860-ED4734976447}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{444C0A8D-6A88-45FD-B860-ED4734976447}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B136780C-A7E4-4E02-8340-237BF6E358DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B136780C-A7E4-4E02-8340-237BF6E358DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B136780C-A7E4-4E02-8340-237BF6E358DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B136780C-A7E4-4E02-8340-237BF6E358DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFB63595-2266-42DC-B689-8DE96DC19ACE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFB63595-2266-42DC-B689-8DE96DC19ACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFB63595-2266-42DC-B689-8DE96DC19ACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFB63595-2266-42DC-B689-8DE96DC19ACE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
