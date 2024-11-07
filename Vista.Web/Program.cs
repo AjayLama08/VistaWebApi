@@ -1,6 +1,10 @@
 using Vista.Web.Data;
+using Vista.Web.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Register the HTTP client and CategoryService for Dependency Injection (DI)
+builder.Services.AddHttpClient<CategoryService>();
 
 // Add services to the container.
 builder.Services.AddRazorPages();

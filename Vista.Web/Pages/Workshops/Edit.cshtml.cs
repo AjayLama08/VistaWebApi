@@ -7,16 +7,22 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Vista.Web.Data;
+using Vista.Web.Services;
 
 namespace Vista.Web.Pages.Workshops
 {
     public class EditModel : PageModel
     {
         private readonly Vista.Web.Data.WorkshopsContext _context;
+        private readonly CategoryService _categoryService;
 
-        public EditModel(Vista.Web.Data.WorkshopsContext context)
+        // Empty SelectListItem List for category drop down
+        public List<SelectListItem> CategoryItems { get; set; } = [];
+
+        public EditModel(Vista.Web.Data.WorkshopsContext context, CategoryService categoryService)
         {
             _context = context;
+            _categoryService = categoryService;
         }
 
         [BindProperty]
@@ -35,6 +41,9 @@ namespace Vista.Web.Pages.Workshops
                 return NotFound();
             }
             Workshop = workshop;
+
+            // Populate category drop down using service class
+            CategoryItems = await _categoryService.GetCategorySelectListAsync();
             return Page();
         }
 
@@ -44,6 +53,8 @@ namespace Vista.Web.Pages.Workshops
         {
             if (!ModelState.IsValid)
             {
+                // Populate category drop down using service class
+                CategoryItems = await _categoryService.GetCategorySelectListAsync();
                 return Page();
             }
 

@@ -6,20 +6,28 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Vista.Web.Data;
+using Vista.Web.Services;
 
 namespace Vista.Web.Pages.Workshops
 {
     public class CreateModel : PageModel
     {
         private readonly Vista.Web.Data.WorkshopsContext _context;
+        private readonly CategoryService _categoryService;
 
-        public CreateModel(Vista.Web.Data.WorkshopsContext context)
+        // Empty SelectListItem List for category drop down
+        public List<SelectListItem> CategoryItems { get; set; } = [];
+
+        public CreateModel(Vista.Web.Data.WorkshopsContext context, CategoryService categoryservice)
         {
             _context = context;
+            _categoryService = categoryservice;
         }
 
-        public IActionResult OnGet()
+        public async Task<IActionResult> OnGet()
         {
+            // Populate category drop down using service class
+            CategoryItems = await _categoryService.GetCategorySelectListAsync();
             return Page();
         }
 
@@ -31,6 +39,8 @@ namespace Vista.Web.Pages.Workshops
         {
             if (!ModelState.IsValid)
             {
+                // Populate category drop down using service class to redisplay input form
+                CategoryItems = await _categoryService.GetCategorySelectListAsync();
                 return Page();
             }
 

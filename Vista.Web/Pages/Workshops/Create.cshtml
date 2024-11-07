@@ -25,7 +25,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="Workshop.CategoryCode" class="control-label"></label>
-                <input asp-for="Workshop.CategoryCode" class="form-control" />
+                <select asp-for="Workshop.CategoryCode" asp-items="Model.CategoryItems" class="form-control">
+                    <option value="">-- Select --</option>
+                </select>
                 <span asp-validation-for="Workshop.CategoryCode" class="text-danger"></span>
             </div>
             <div class="form-group">
