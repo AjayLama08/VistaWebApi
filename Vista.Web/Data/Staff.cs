@@ -18,6 +18,9 @@ namespace Vista.web.Data
         public string LastName { get; set; } = null!;
         [Required]
         public string FirstName { get; set; } = null!;
-        // Placeholder for List of Workshops (many side of one-to-many)
+        public List<WorkshopStaff>? Workshops
+        {
+            get; set;
+        }
     }
 }
