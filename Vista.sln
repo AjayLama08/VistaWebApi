@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vista.Api", "Vista.Api\Vist
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{517654A0-F608-4EA5-878C-3DEB2813E67E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vista.web", "Vista.web\Vista.web.csproj", "{EFB63595-2266-42DC-B689-8DE96DC19ACE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vista.Web", "Vista.web\Vista.Web.csproj", "{EFB63595-2266-42DC-B689-8DE96DC19ACE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
