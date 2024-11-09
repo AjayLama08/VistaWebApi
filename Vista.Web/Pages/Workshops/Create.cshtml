@@ -1,0 +1,49 @@
+﻿@page
+@model Vista.Web.Pages.Workshops.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Workshop</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Workshop.Name" class="control-label"></label>
+                <input asp-for="Workshop.Name" class="form-control" />
+                <span asp-validation-for="Workshop.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Workshop.DateAndTime" class="control-label"></label>
+                <input asp-for="Workshop.DateAndTime" class="form-control" />
+                <span asp-validation-for="Workshop.DateAndTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Workshop.CategoryCode" class="control-label"></label>
+                <input asp-for="Workshop.CategoryCode" class="form-control" />
+                <span asp-validation-for="Workshop.CategoryCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Workshop.BookingRef" class="control-label"></label>
+                <input asp-for="Workshop.BookingRef" class="form-control" />
+                <span asp-validation-for="Workshop.BookingRef" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
