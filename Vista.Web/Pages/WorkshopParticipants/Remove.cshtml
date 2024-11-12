@@ -30,6 +30,7 @@
         <input type="hidden" asp-for="WorkshopStaff.WorkshopId" />
         <input type="hidden" asp-for="WorkshopStaff.StaffId" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index">Back to List</a>
+        <a asp-page="./Index" asp-route-id="@Model.WorkshopStaff.Workshop.WorkshopId">Back to List
+        </a>
     </form>
 </div>
